@@ -15,9 +15,12 @@ const init = async () => {
     const server = new Hapi.Server({ port: Settings.port });
     /**
      * hapi/vision: enable the view functionality in our server
-     * hapi/inert: define folder as public
+     * hapi/inert: define folder as public to view
      */
     await server.register([require("@hapi/vision"), require("@hapi/inert")]);
+    /**
+     * Set path for view folder
+     */
     server.views({
         engines: { pug: require("pug") },
         path: Path.join(__dirname, "lib/views"),

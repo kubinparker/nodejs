@@ -25,13 +25,17 @@ block content
                         button.delete(aria-label='close')
 
                     section.modal-card-body
-                        form(action='/note' method='POST').note-form#note-form
+                        form(action='/note' method='POST', enctype='multipart/form-data').note-form#note-form
                             .field
                                 .control
                                     input.input(name='noteTitle' type='text' placeholder='Title')
                             .field
                                 .control
                                     input.input(name='noteDescription' type='text' placeholder='Short description')
+                            .field
+                                .control
+                                    label(for="test123") Upload File
+                                    input.input(name='upload' type='file' id='test123' style='opacity:0; position:absolute; top:0; left:0')
                             .field
                                 .control
                                     textarea.textarea(name='noteContent' placeholder='Contents')
